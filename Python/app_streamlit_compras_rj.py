@@ -63,8 +63,8 @@ origem_dados = st.sidebar.radio(
 # Configuração de Conexão com Banco de Dados
 if origem_dados == "Supabase (PostgreSQL Cloud)":
     st.sidebar.subheader("🔑 Credenciais do Supabase")
-    db_host = st.sidebar.text_input("Host", value="DIGITE_O_HOST") # INFORMAR O HOSTE
-    db_user = st.sidebar.text_input("Usuário", value="DIGITE_O_USER") # INFORMAR O USER
+    db_host = st.sidebar.text_input("Host", value="aws-0-sa-east-1.pooler.supabase.com")
+    db_user = st.sidebar.text_input("Usuário", value="postgres.aivrloittxzbmbfssdyw")
     db_pass = st.sidebar.text_input("Senha", type="password", value="")
     db_port = st.sidebar.text_input("Porta", value="6543")
     db_name = st.sidebar.text_input("Database", value="postgres")
