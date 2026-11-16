@@ -228,7 +228,7 @@ else:
 tab1, tab2, tab3 = st.tabs([
     "🔍 Consulta Pública de Processos",
     "🤖 Análise Não Supervisionada (ML)",
-    "📊 Painel Gerencial (Power BI Embarcado)"
+    "📊 Painel Gerencial (Power BI)"
 ])
 
 # ------------------------------------------------------------------------------
@@ -361,31 +361,26 @@ with tab2:
     st.table(df_top_anomalias[cols_top])
 
 # ------------------------------------------------------------------------------
-# TAB 3: POWER BI EMBARCADO
+# TAB 3: PAINEL POWER BI (DOWNLOAD)
 # ------------------------------------------------------------------------------
 with tab3:
     st.subheader("Painel Executivo e Interativo do Power BI")
-    st.markdown("Insira abaixo o link público do seu relatório do Power BI Service para visualizá-lo dentro da aplicação web:")
-    
-    pbi_url_default = "https://app.powerbi.com/view?r=eyJrIjoiZmFrZS1saW5rIiwidCI6ImZha2UtdG9rZW4ifQ%3D%3D"
-    pbi_url = st.text_input("URL de Incorporação do Power BI (Publicar na Web):", value=pbi_url_default)
-    
-    if pbi_url == pbi_url_default:
-        st.info("ℹ️ Para exibir o seu relatório real do Power BI aqui: No Power BI Desktop/Service, vá em **Arquivo -> Incorporar Relatório -> Publicar na Web (Público)** e cole o link acima.")
-        
-    st.markdown("---")
-    
-    # Iframe para renderização do Power BI
-    pbi_iframe_code = f"""
-    <iframe title="Power BI Dashboard - Compras Diretas RJ" 
-            width="100%" 
-            height="700" 
-            src="{pbi_url}" 
-            frameborder="0" 
-            allowFullScreen="true">
-    </iframe>
-    """
-    st.components.v1.html(pbi_iframe_code, height=710)
+    st.markdown(
+        "O painel gerencial foi desenvolvido no **Power BI Desktop** e está disponível para download "
+        "no repositório do projeto no GitHub. Baixe o arquivo e abra-o no Power BI Desktop para explorar "
+        "os indicadores das Compras Diretas do Estado do Rio de Janeiro."
+    )
+
+    st.link_button(
+        "📥 Baixar painel.pbix",
+        "https://github.com/marcelonicolays/contasRJ/raw/main/Painel/painel.pbix",
+        type="primary",
+    )
+    st.caption(
+        "Para abrir o arquivo, é necessário o Power BI Desktop (gratuito). "
+        "Ele também pode ser acessado na pasta "
+        "[Painel do repositório contasRJ](https://github.com/marcelonicolays/contasRJ/tree/main/Painel)."
+    )
 
 # ==============================================================================
 # RODAPÉ
